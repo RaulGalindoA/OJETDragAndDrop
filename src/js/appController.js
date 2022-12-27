@@ -159,8 +159,7 @@ define([
       ],
     };
 
-    this.colorHandler =
-      new ojattributegrouphandler_1.ColorAttributeGroupHandler();
+    this.colorHandler = new ojattributegrouphandler_1.ColorAttributeGroupHandler();
     this.nodes1 = ko.observableArray(this.dndData.nodesA);
     this.nodes2 = ko.observableArray(this.dndData.nodesB);
     this.links2 = ko.observableArray(this.dndData.linksB);
@@ -235,8 +234,13 @@ define([
       const nodeBounds = node["getContentBounds"]();
       const nodePos = node["getPosition"]();
       const labelLayout = {
-        x: nodeBounds.x + nodePos.x + 0.5 * nodeBounds.w,
-        y: nodeBounds.y + nodePos.y + 0.5 * nodeBounds.h,
+        // Codigo original
+        // x: nodeBounds.x + nodePos.x + 0.5 * nodeBounds.w,
+        // y: nodeBounds.y + nodePos.y + 0.5 * nodeBounds.h,
+
+        // Movimiento para la etiqueta debajo
+        x: nodeBounds.x + nodePos.x + .5 * nodeBounds.w,
+        y: nodeBounds.y + nodePos.y + 1.2 * nodeBounds.h,
         halign: "center",
         valign: "middle",
       };
@@ -276,7 +280,12 @@ define([
         });
       }.bind(this)
     );
-
+    this.selectedNodesValue = ko.observableArray([]);
+    this.selectionValue = ko.observable('single');
+    this.selectionText = ko.pureComputed(() => {
+      const items = this.selectedNodesValue().join(', ');
+      return items;
+  });
     this.buttonAction = ()=> {
       console.log("this");
     };

@@ -107,11 +107,19 @@
         class="oj-web-applayout-max-width oj-web-applayout-content"
       >
         <!-- Place your page content here -->
+
+        <div class="oj-sm-padding-1x">
+          <div>Selected objects:</div>
+          <div id="selectedObjects"><oj-bind-text value="[[selectionText]]"></oj-bind-text></div>
+        </div>
+
         <oj-diagram
           id="diagram2"
           node-data="[[nodeDataProvider2]]"
           link-data="[[linkDataProvider2]]"
           layout="[[dropLayout]]"
+          selection-mode="[[selectionValue]]"
+          selection="{{selectedNodesValue}}"
           dnd.drag.nodes.data-types='["text/nodes2"]'
           dnd.drop.background.data-types='["text/nodes1", "text/nodes2"]'
           dnd.drop.background.drop="[[onDrop2]]"
@@ -119,7 +127,6 @@
           dnd.drop.nodes.drop="[[onDrop2]]"
           dnd.drop.links.data-types='["text/nodes1", "text/nodes2"]'
           dnd.drop.links.drop="[[onLinkDrop]]"
-          panning="auto"
           pan-zoom-state="{{panZoomState}}"
           min-zoom="1"
           max-zoom="1"
@@ -133,6 +140,7 @@
               icon.color="[[colorHandler.getValue(node.data.category)]]"
               icon.width="40"
               icon.height="40"
+              text.fill="FFFFFF"
             ></oj-diagram-node>
           </template>
           <template slot="linkTemplate" data-oj-as="link">
