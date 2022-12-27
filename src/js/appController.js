@@ -45,79 +45,18 @@ define([
     );
     this.smScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
 
+    var c = 0;
+
     // Header
     // Application Name used in Branding Area
     this.appName = ko.observable("App Name");
     // User Info used in Global Navigation area
     this.userLogin = ko.observable("john.hancock@oracle.com");
 
-    console.log(layout)
 
     // Aqui va mi codigo
 
     this.dndData = {
-      nodesA: [
-        {
-          id: "A0",
-          label: "A0",
-          category: "0",
-        },
-        {
-          id: "A1",
-          label: "A1",
-          category: "1",
-        },
-        {
-          id: "A2",
-          label: "A2",
-          category: "2",
-        },
-        {
-          id: "A3",
-          label: "A3",
-          category: "0",
-        },
-        {
-          id: "A4",
-          label: "A4",
-          category: "1",
-        },
-        {
-          id: "A5",
-          label: "A5",
-          category: "2",
-        },
-        {
-          id: "A6",
-          label: "A6",
-          category: "0",
-        },
-        {
-          id: "A7",
-          label: "A7",
-          category: "1",
-        },
-        {
-          id: "A8",
-          label: "A8",
-          category: "2",
-        },
-        {
-          id: "A9",
-          label: "A9",
-          category: "0",
-        },
-        {
-          id: "A10",
-          label: "A10",
-          category: "1",
-        },
-        {
-          id: "A11",
-          label: "A11",
-          category: "2",
-        },
-      ],
       nodesB: [
         {
           id: "B0",
@@ -281,13 +220,26 @@ define([
       }.bind(this)
     );
     this.selectedNodesValue = ko.observableArray([]);
-    this.selectionValue = ko.observable('single');
+    this.selectionValue = ko.observable('multiple');
     this.selectionText = ko.pureComputed(() => {
       const items = this.selectedNodesValue().join(', ');
       return items;
   });
-    this.buttonAction = ()=> {
+    this.addNode = ()=> {
       console.log("this");
+
+      let newId = parseInt(c++).toString();
+
+      this.nodes2.push(
+        {
+          
+            id: newId,
+            category: "0",
+            x: 250,
+            y: 250,
+          
+        }
+      );
     };
 
     // Aqui termina mi codigo

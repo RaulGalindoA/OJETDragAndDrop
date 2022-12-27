@@ -108,6 +108,26 @@
       >
         <!-- Place your page content here -->
 
+        <oj-button on-oj-action="[[addNode]]">
+          <span  class="oj-ux-ico-add-sibling"></span>
+          Add Node
+        </oj-button>
+
+        <oj-button>
+          <span  class="oj-ux-ico-external-link"></span>
+          Add Link
+        </oj-button>
+
+        <oj-button>
+          <span  class="oj-ux-ico-edit-inline"></span>
+          Update
+        </oj-button>
+
+        <oj-button>
+          <span  class="oj-ux-ico-delete-all"></span>
+          Remove
+        </oj-button>
+
         <div class="oj-sm-padding-1x">
           <div>Selected objects:</div>
           <div id="selectedObjects"><oj-bind-text value="[[selectionText]]"></oj-bind-text></div>
