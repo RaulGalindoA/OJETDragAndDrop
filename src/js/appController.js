@@ -137,6 +137,13 @@ define([
           x: 155,
           y: 155,
         },
+
+        {
+          id: "B3",
+          category: "3",
+          x: 200,
+          y: 200,
+        }
       ],
       linksB: [
         {
@@ -269,6 +276,10 @@ define([
         });
       }.bind(this)
     );
+
+    this.buttonAction = ()=> {
+      console.log("this");
+    };
 
     // Aqui termina mi codigo
   }

@@ -125,7 +125,8 @@
           max-zoom="1"
         >
           <template slot="nodeTemplate" data-oj-as="node">
-            <oj-diagram-node
+            <oj-diagram-node 
+              on-oj-action="[[buttonAction]]"
               label="[[node.data.id]]"
               short-desc='[["Node " + node.data.id + ", Category " + node.data.category]]'
               icon.shape='[[node.data.category === "0" ? "square" : node.data.category === "1" ? "circle" : "human"]]'
